@@ -1,3 +1,3 @@
 # multithreading  
 practice with multithreading  
-not using mutex  
+~~not using mutex~~ added mutex version 
