@@ -1,8 +1,8 @@
 
 CC=clang
 CFLAGS=-g -Wall -pthread
-OBJS=multithread_mutex.o
-BIN=multithread_mutex
+OBJS=multithread.o
+BIN=multithread
 
 all: $(BIN)
 
