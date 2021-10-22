@@ -1,19 +1,20 @@
-
-CC=clang
+CC=gcc
 CFLAGS=-g -Wall -pthread
-OBJS=multithread.o
-BIN=bin/multithread
 
-all: $(BIN)
+.PHONY : all
+all: multithread multithread_mutex
+
+multithread: multithread.o
+	$(CC) $(CFLAGS) $< -o $@
+
+multithread_mutex: multithread_mutex.o
+	$(CC) $(CFLAGS) $< -o $@
 
 #-c tells compiler to skip linking phase and generate object files instead
 #automatic variables: $@ is target name and $^ is dependencies
-
-$(BIN): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(BIN)
-
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+.PHONY: clean
 clean:
-	rm -r $(BIN) *.o *.dSYM
+	rm -r *.o 
